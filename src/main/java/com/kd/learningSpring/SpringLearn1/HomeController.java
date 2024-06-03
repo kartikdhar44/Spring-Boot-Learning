@@ -1,6 +1,7 @@
 package com.kd.learningSpring.SpringLearn1;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,10 @@ public class HomeController {
 public String index(Model model) {
 model.addAttribute("videos", videoService.getVideos());
 return "index";
+}
+@GetMapping("/react")
+public String react() {
+  return "react";
 }
 @PostMapping("/new-video")
 public String newVideo(@ModelAttribute Video newVideo) {              /*@PostMapping("/new-video"): Spring MVC’s annotation to capture POST /new-video calls and route them to this method.
